@@ -1,0 +1,38 @@
+<html>
+ <head>
+ <title>Servo Control</title>
+ </head>
+        <body>
+        <table>
+        Servo Control:
+        <form method="get" action="Servo.php">
+        <tr>
+                <th><input type="submit" value="Range 550" name="range_550">
+                <input type="submit" value="Range 870" name="range_870"></th>
+                <th><input type="submit" value="Range 1190" name="range_1190">
+                <input type="submit" value="Range 1510" name="range_1510"></th>
+                <th><input type="submit" value="Range 1830" name="range_1830">
+                </th>
+        </tr>
+        </table>
+        </form>
+        <?php
+        shell_exec("pigs m 2 w"); //set gpio2 in writeable mode
+        if(isset($_GET["range_550"])){
+                shell_exec("pigs s 2 550");
+        }
+        else if(isset($_GET["range_870"])){
+                shell_exec("pigs s 2 870");
+        }
+        else if(isset($_GET["range_1190"])){
+                shell_exec("pigs s 2 1190");
+        }
+   	else if(isset($_GET["range_1510"])){
+                shell_exec("pigs s 2 1510");
+        }
+        else if(isset($_GET["range_1830"])){
+                shell_exec("pigs s 2 1830");
+        }
+        ?>
+        </body>
+ </html>
