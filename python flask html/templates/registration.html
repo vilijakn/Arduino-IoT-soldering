@@ -1,0 +1,35 @@
+{% extends "layout.html"%}
+{% block content %}
+<center>
+  <div class="content-section">
+    <form method="get", action="login">
+
+    {{ form.hidden_tag()}}
+    <fieldset >
+        <h1>registration form</h1>
+        {{ form.username.label(class="form-control-label") }}<br>
+        {{ form.username(class="form-control form-control-lg") }}
+      <div>
+        {{ form.email.label(class = "form-control-label") }}<br>
+        {{ form.email(class="form-control form-control-lg") }}
+      </div>
+      <div>
+        {{ form.password.label(class = "form-control-label") }}<br>
+        {{ form.password(class="form-control form-control-lg") }}
+
+      </div>
+      <div>
+        {{ form.password_confirmation.label(class = "form-control-label") }}<br>
+        {{ form.password_confirmation(class="form-control form-control-lg") }}
+      </div>
+    </fieldset>
+    <div class="submit">
+      {{ form.submit(class="btn btn-outline-info") }}
+    </div>
+    <div class = "border-top pt-3">
+      <small class="text muted">
+        already have an account? <a href="{{ url_for('login') }}"> sign in </a>
+      </form>
+    </div>
+    <center>
+{% endblock content%}
